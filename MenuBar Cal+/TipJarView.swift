@@ -92,7 +92,7 @@ struct TipJarView: View {
             Text("Podpora vývoje")
                 .font(.title2.bold())
 
-            Text("Pokud ti CalendarBar dělá radost, můžeš dobrovolně podpořit vývoj. Nákupy jsou jednorázové, bez předplatného.")
+            Text("Pokud ti aplikace dělá radost, můžeš mě a moji kočku podpořit v dalším vývoji. Nákupy jsou jednorázové, bez předplatného.")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 

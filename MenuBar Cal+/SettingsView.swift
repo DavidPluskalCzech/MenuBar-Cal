@@ -31,7 +31,7 @@ struct SettingsView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 25) {
 
-                        Text("Zobrazení")
+                        Text("Zobrazení v MenuBar")
                             .font(.title2.bold())
 
                         // Přepínače
@@ -42,7 +42,7 @@ struct SettingsView: View {
                         ) {
 
                             GridRow {
-                                Text("Zobrazit datum v menu baru")
+                                Text("Zobrazit datum")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $showDate)
@@ -53,7 +53,7 @@ struct SettingsView: View {
                             }
 
                             GridRow {
-                                Text("Zobrazit čas v menu baru")
+                                Text("Zobrazit čas")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $showTime)
@@ -64,7 +64,7 @@ struct SettingsView: View {
                             }
 
                             GridRow {
-                                Text("Zobrazit číslo týdne v menu baru")
+                                Text("Zobrazit číslo týdne")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $showWeekNumber)
@@ -75,7 +75,7 @@ struct SettingsView: View {
                             }
 
                             GridRow {
-                                Text("Zobrazit ikonu v menu baru")
+                                Text("Zobrazit ikonu")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $showIcon)
@@ -102,7 +102,7 @@ struct SettingsView: View {
 
                         Divider()
 
-                        Text("Formát data")
+                        Text("Zobrazení data")
                             .font(.headline)
 
                         Picker("", selection: $dateStyleRaw) {
@@ -127,7 +127,7 @@ struct SettingsView: View {
                 Text("Zpětná vazba")
                     .font(.title2.bold())
 
-                Text("Budu rád za jakékoli návrhy na vylepšení, bug reporty nebo nápady.")
+                Text("Budu rád za jakékoli návrhy na vylepšení nebo upozornění na chyby.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
