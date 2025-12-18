@@ -1,0 +1,84 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "8DC6F888",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "95763FFE",
+      "localizations" : [
+        {
+          "description" : "Your support helps support ongoing development and maintenance.",
+          "displayName" : "☕️",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.davethepcguy.calendarbar.tip.small",
+      "referenceName" : "SmallTip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "5E6EBF05",
+      "localizations" : [
+        {
+          "description" : "Your support helps support ongoing development and maintenance.",
+          "displayName" : "☕️🍰",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.davethepcguy.calendarbar.tip.medium",
+      "referenceName" : "MediumTip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "16AA3AED",
+      "localizations" : [
+        {
+          "description" : "Your support helps support ongoing development and maintenance.",
+          "displayName" : "☕️🍰🩵",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.davethepcguy.calendarbar.tip.large",
+      "referenceName" : "LargeTip",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

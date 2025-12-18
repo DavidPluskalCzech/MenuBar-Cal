@@ -2,6 +2,13 @@ import SwiftUI
 
 @main
 struct CalendarBarApp: App {
+
+    init() {
+        Task { @MainActor in
+            StoreKitTransactionListener.shared.start()
+        }
+    }
+
     var body: some Scene {
         MenuBarExtra {
             CalendarPopoverView()

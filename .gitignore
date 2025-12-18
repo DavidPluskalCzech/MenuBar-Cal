@@ -9,3 +9,6 @@ xcuserdata/
 # Build
 DerivedData/
 .build/
+
+# Xcode shared data
+*.xcodeproj/xcshareddata/

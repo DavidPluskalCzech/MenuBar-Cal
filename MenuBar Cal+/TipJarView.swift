@@ -17,19 +17,27 @@ final class TipJarViewModel: ObservableObject {
     ]
 
     func loadProducts() async {
+        print("TipJarViewModel.loadProducts() called")
+
         // ať nevoláme StoreKit zbytečně víckrát
-        guard products.isEmpty else { return }
+        guard products.isEmpty else {
+            print("Skipping loadProducts: products already loaded (\(products.count))")
+            return
+        }
 
         isLoading = true
         errorMessage = nil
 
         do {
+            print("Fetching products for IDs: \(productIDs)")
             var fetched = try await Product.products(for: productIDs)
+            print("Fetched products count: \(fetched.count)")
 
-            // seřadíme podle ceny (nejlevnější nahoře)
             fetched.sort { $0.price < $1.price }
             products = fetched
+
         } catch {
+            print("ERROR fetching products: \(error.localizedDescription)")
             errorMessage = "Nepodařilo se načíst možnosti podpory. Zkuste to prosím později."
         }
 
@@ -80,6 +88,7 @@ struct TipJarView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
+
             Text("Podpora vývoje")
                 .font(.title2.bold())
 
@@ -87,7 +96,6 @@ struct TipJarView: View {
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
-            // Stav: načítání
             if viewModel.isLoading {
                 HStack {
                     ProgressView()
@@ -96,7 +104,6 @@ struct TipJarView: View {
                 }
                 .padding(.top, 8)
 
-            // Stav: chyba
             } else if let error = viewModel.errorMessage {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(error)
@@ -108,22 +115,18 @@ struct TipJarView: View {
                 }
                 .padding(.top, 8)
 
-            // Stav: žádné produkty (např. v simulátoru nebo bez StoreKit configu)
             } else if viewModel.products.isEmpty {
                 Text("Možnosti podpory zatím nejsou dostupné. Zkontroluj připojení k internetu nebo že aplikace běží z App Store / s testovací StoreKit konfigurací.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .padding(.top, 8)
 
-            // Stav: máme produkty
             } else {
                 ForEach(viewModel.products, id: \.id) { product in
                     Button {
                         Task {
                             let success = await viewModel.purchase(product)
-                            if success {
-                                showThanksAlert = true
-                            }
+                            if success { showThanksAlert = true }
                         }
                     } label: {
                         HStack {
@@ -155,8 +158,10 @@ struct TipJarView: View {
 
             Spacer()
         }
+        
         .task {
             await viewModel.loadProducts()
         }
+        
     }
 }
