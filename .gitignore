@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Xcode user data (personal)
+*.xcuserstate
+*.xcbkptlist
+xcuserdata/
+
+# Build
+DerivedData/
+.build/
