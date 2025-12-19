@@ -58,7 +58,7 @@ struct StatusItemLabel: View {
 
         if showWeekNumber {
             let week = Calendar.current.component(.weekOfYear, from: now)
-            let prefix = (region == "cz" || region == "sk") ? "T" : "W"
+            let prefix = NSLocalizedString("week_short", comment: "Week number prefix")
             parts.append("\(prefix)\(week)")
         }
 

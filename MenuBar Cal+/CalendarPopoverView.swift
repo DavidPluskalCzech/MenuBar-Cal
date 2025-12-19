@@ -182,7 +182,7 @@ struct IconButton: View {
             // Bottom bar – Today, open native cal, settings buttons
             HStack(spacing: 8) {
 
-                Button("Dnes") {
+                Button("today_button") {
                     goToToday()
                 }
                 .buttonStyle(.borderedProminent)

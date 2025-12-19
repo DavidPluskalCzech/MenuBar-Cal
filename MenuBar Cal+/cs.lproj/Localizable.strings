@@ -1,7 +1,41 @@
-//
-//  Localizable.strings
-//  MenuBar Cal+
-//
-//  Created by David Pluskal on 19.11.2025.
-//
+"today_button" = "Dnes";
+"week_short" = "T";
 
+"tab_general" = "Obecné";
+"tab_feedback" = "Zpětná vazba";
+"tab_support" = "Podpora";
+
+"general_title" = "Zobrazení v MenuBar";
+"general_show_date" = "Zobrazit datum";
+"general_show_time" = "Zobrazit čas";
+"general_show_week_number" = "Zobrazit číslo týdne";
+"general_show_icon" = "Zobrazit ikonu";
+"general_launch_at_login" = "Spustit při startu systému";
+
+"general_date_format_title" = "Zobrazení data";
+"general_date_format_short" = "Krátké (12. 11. 25)";
+"general_date_format_medium" = "Střední (12. 11. 2025)";
+"general_date_format_long" = "Dlouhé (12. listopadu 2025)";
+
+"quit_app" = "Ukončit aplikaci";
+
+"feedback_title" = "Zpětná vazba";
+"feedback_subtitle" = "Budu rád za jakékoli návrhy na vylepšení nebo upozornění na chyby.";
+"feedback_placeholder" = "Napište svůj návrh, nápad nebo zpětnou vazbu…";
+"feedback_send" = "Odeslat zpětnou vazbu";
+"feedback_thanks" = "Děkuji za zpětnou vazbu!";
+
+"support_thanks" = "Děkuji za podporu! 💙";
+"support_thanks_button" = "Rádo se stalo";
+"common_ok" = "OK";
+
+"support_title" = "Podpoř další vývoj";
+"support_subtitle" = "Pokud ti aplikace dělá radost, můžeš mě a moji kočku podpořit v dalším vývoji. Nákupy jsou jednorázové, bez předplatného.";
+
+"support_loading" = "Načítám možnosti podpory…";
+"support_retry" = "Zkusit znovu";
+"support_empty_state" = "Možnosti podpory zatím nejsou dostupné. Zkontroluj připojení k internetu nebo že aplikace běží z App Store / s testovací StoreKit konfigurací.";
+
+"support_error_load" = "Nepodařilo se načíst možnosti podpory. Zkuste to prosím později.";
+"support_error_purchase" = "Platbu se nepodařilo dokončit. Zkuste to prosím znovu.";
+"support_error_verify" = "Nelze ověřit nákup.";

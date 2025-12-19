@@ -31,7 +31,7 @@ struct SettingsView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 25) {
 
-                        Text("Zobrazení v MenuBar")
+                        Text("general_title")
                             .font(.title2.bold())
 
                         // Přepínače
@@ -42,7 +42,7 @@ struct SettingsView: View {
                         ) {
 
                             GridRow {
-                                Text("Zobrazit datum")
+                                Text("general_show_date")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $showDate)
@@ -53,7 +53,7 @@ struct SettingsView: View {
                             }
 
                             GridRow {
-                                Text("Zobrazit čas")
+                                Text("general_show_time")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $showTime)
@@ -64,7 +64,7 @@ struct SettingsView: View {
                             }
 
                             GridRow {
-                                Text("Zobrazit číslo týdne")
+                                Text("general_show_week_number")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $showWeekNumber)
@@ -75,7 +75,7 @@ struct SettingsView: View {
                             }
 
                             GridRow {
-                                Text("Zobrazit ikonu")
+                                Text("general_show_icon")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $showIcon)
@@ -86,7 +86,7 @@ struct SettingsView: View {
                             }
                             
                             GridRow {
-                                Text("Spustit při startu systému")
+                                Text("general_launch_at_login")
                                     .frame(maxWidth: .infinity, alignment: .leading)
 
                                 Toggle("", isOn: $launchAtLogin)
@@ -102,32 +102,49 @@ struct SettingsView: View {
 
                         Divider()
 
-                        Text("Zobrazení data")
+                        Text("general_date_format_title")
                             .font(.headline)
 
                         Picker("", selection: $dateStyleRaw) {
-                            Text("Krátké (12. 11. 25)").tag(0)
-                            Text("Střední (12. 11. 2025)").tag(1)
-                            Text("Dlouhé (12. listopadu 2025)").tag(2)
+                            Text("general_date_format_short").tag(0)
+                            Text("general_date_format_medium").tag(1)
+                            Text("general_date_format_long").tag(2)
                         }
                         .pickerStyle(.radioGroup)
                         
+                        
+                    
+                        .padding(.vertical, 9)
 
+                        HStack {
+                            Spacer()
+
+                            Button {
+                                NSApp.terminate(nil)
+                            } label: {
+                                Text(NSLocalizedString("quit_app", comment: ""))
+                            }
+                            .buttonStyle(.bordered)
+                            .controlSize(.small)
+                            .tint(.secondary)
+
+                            Spacer()
+                        }
 
                     }
                     .padding(20)
                 }
                 .scrollDisabled(true)
                 .tabItem {
-                    Label("Obecné", systemImage: "slider.horizontal.3")
+                    Label("tab_general", systemImage: "slider.horizontal.3")
                 }
 
             // Zpětná vazba
             VStack(alignment: .leading, spacing: 16) {
-                Text("Zpětná vazba")
+                Text("tab_feedback")
                     .font(.title2.bold())
 
-                Text("Budu rád za jakékoli návrhy na vylepšení nebo upozornění na chyby.")
+                Text("feedback_subtitle")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
@@ -137,7 +154,7 @@ struct SettingsView: View {
 
                         // Placeholder TextEditor
                         if feedbackText.isEmpty {
-                            Text("Napište svůj návrh, nápad nebo zpětnou vazbu…")
+                            Text("feedback_placeholder")
                                 .foregroundColor(Color.primary.opacity(0.45))
                                 .padding(.top, 6)
                                 .padding(.leading, 8)
@@ -186,7 +203,7 @@ struct SettingsView: View {
                     Button {
                         sendFeedback()
                     } label: {
-                        Label("Odeslat zpětnou vazbu", systemImage: "paperplane")
+                        Label("feedback_send", systemImage: "paperplane")
                     }
                     .keyboardShortcut(.defaultAction)
                     Spacer()
@@ -198,7 +215,7 @@ struct SettingsView: View {
                 Spacer()
             }
             .padding(20)
-            .alert("Děkuji za zpětnou vazbu!", isPresented: $showThanksAlert) {
+            .alert("feedback_thanks", isPresented: $showThanksAlert) {
                 Button("OK", role: .cancel) { }
             }
             .tabItem {
@@ -208,11 +225,11 @@ struct SettingsView: View {
             // Tip Jar
             TipJarView(showThanksAlert: $showTipThanksAlert)
                 .padding(20)
-                .alert("Děkuji za podporu! 💙", isPresented: $showTipThanksAlert) {
-                    Button("Rádo se stalo", role: .cancel) { }
+                .alert("support_thanks", isPresented: $showTipThanksAlert) {
+                    Button("support_thanks_button", role: .cancel) { }
                 }
                 .tabItem {
-                    Label("Podpora", systemImage: "heart")
+                    Label("tab_support", systemImage: "heart")
                 }
         }
         .padding(.top, 12)

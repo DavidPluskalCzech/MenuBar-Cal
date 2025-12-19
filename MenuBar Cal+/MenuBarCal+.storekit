@@ -20,9 +20,14 @@
       "internalID" : "95763FFE",
       "localizations" : [
         {
-          "description" : "Your support helps support ongoing development and maintenance.",
+          "description" : "Your support helps a lot with further development.",
           "displayName" : "☕️",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Tvá podpora pomůže dalšímu vývoji aplikace. ",
+          "displayName" : "☕️",
+          "locale" : "cs"
         }
       ],
       "productID" : "com.davethepcguy.calendarbar.tip.small",
@@ -35,9 +40,14 @@
       "internalID" : "5E6EBF05",
       "localizations" : [
         {
-          "description" : "Your support helps support ongoing development and maintenance.",
+          "description" : "Your support helps a lot with further development.",
           "displayName" : "☕️🍰",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Tvá podpora pomůže dalšímu vývoji aplikace. ",
+          "displayName" : "☕️🍰",
+          "locale" : "cs"
         }
       ],
       "productID" : "com.davethepcguy.calendarbar.tip.medium",
@@ -50,9 +60,14 @@
       "internalID" : "16AA3AED",
       "localizations" : [
         {
-          "description" : "Your support helps support ongoing development and maintenance.",
+          "description" : "Your support helps a lot with further development.",
           "displayName" : "☕️🍰🩵",
           "locale" : "en_US"
+        },
+        {
+          "description" : "Tvá podpora pomůže dalšímu vývoji aplikace. ",
+          "displayName" : "☕️🍰🩵",
+          "locale" : "cs"
         }
       ],
       "productID" : "com.davethepcguy.calendarbar.tip.large",

@@ -38,7 +38,7 @@ final class TipJarViewModel: ObservableObject {
 
         } catch {
             print("ERROR fetching products: \(error.localizedDescription)")
-            errorMessage = "Nepodařilo se načíst možnosti podpory. Zkuste to prosím později."
+            errorMessage = "support_error_load."
         }
 
         isLoading = false
@@ -61,7 +61,7 @@ final class TipJarViewModel: ObservableObject {
                 return false
             }
         } catch {
-            errorMessage = "Platbu se nepodařilo dokončit. Zkuste to prosím znovu."
+            errorMessage = "support_error_purchase"
             return false
         }
     }
@@ -72,7 +72,7 @@ final class TipJarViewModel: ObservableObject {
             throw NSError(
                 domain: "StoreKit",
                 code: 0,
-                userInfo: [NSLocalizedDescriptionKey: "Nelze ověřit nákup."]
+                userInfo: [NSLocalizedDescriptionKey: "support_error_verify"]
             )
         case .verified(let safe):
             return safe
@@ -89,17 +89,17 @@ struct TipJarView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
 
-            Text("Podpora vývoje")
+            Text("support_title")
                 .font(.title2.bold())
 
-            Text("Pokud ti aplikace dělá radost, můžeš mě a moji kočku podpořit v dalším vývoji. Nákupy jsou jednorázové, bez předplatného.")
+            Text("support_subtitle")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
             if viewModel.isLoading {
                 HStack {
                     ProgressView()
-                    Text("Načítám možnosti podpory…")
+                    Text("support_loading")
                         .font(.subheadline)
                 }
                 .padding(.top, 8)
@@ -109,14 +109,14 @@ struct TipJarView: View {
                     Text(error)
                         .font(.subheadline)
 
-                    Button("Zkusit znovu") {
+                    Button("support_retry") {
                         Task { await viewModel.loadProducts() }
                     }
                 }
                 .padding(.top, 8)
 
             } else if viewModel.products.isEmpty {
-                Text("Možnosti podpory zatím nejsou dostupné. Zkontroluj připojení k internetu nebo že aplikace běží z App Store / s testovací StoreKit konfigurací.")
+                Text("support_empty_state")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .padding(.top, 8)

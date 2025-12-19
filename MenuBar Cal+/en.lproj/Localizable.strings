@@ -1,7 +1,41 @@
-//
-//  Localizable.strings
-//  MenuBar Cal+
-//
-//  Created by David Pluskal on 19.11.2025.
-//
+"today_button" = "Today";
+"week_short" = "W";
 
+"tab_general" = "General";
+"tab_feedback" = "Feedback";
+"tab_support" = "Support";
+
+"general_title" = "Menu Bar Display";
+"general_show_date" = "Show date";
+"general_show_time" = "Show time";
+"general_show_week_number" = "Show week number";
+"general_show_icon" = "Show icon";
+"general_launch_at_login" = "Launch at login";
+
+"general_date_format_title" = "Date format";
+"general_date_format_short" = "Short (12. 11. 25)";
+"general_date_format_medium" = "Medium (12. 11. 2025)";
+"general_date_format_long" = "Long (12 November 2025)";
+
+"quit_app" = "Quit App";
+
+"feedback_title" = "Feedback";
+"feedback_subtitle" = "I’d appreciate suggestions, improvement ideas, or bug reports.";
+"feedback_placeholder" = "Write your idea, suggestion, or feedback…";
+"feedback_send" = "Send feedback";
+"feedback_thanks" = "Thanks for your feedback!";
+
+"support_thanks" = "Thank you for your support! 💙";
+"support_thanks_button" = "You’re welcome";
+"common_ok" = "OK";
+
+"support_title" = "Support Development";
+"support_subtitle" = "If you enjoy the app, you can support me and my cat in further development. Purchases are one-time only, no subscriptions.";
+
+"support_loading" = "Loading support options…";
+"support_retry" = "Try Again";
+"support_empty_state" = "Support options are currently unavailable. Please check your internet connection or make sure the app is running from the App Store or with a StoreKit test configuration.";
+
+"support_error_load" = "Unable to load support options. Please try again later.";
+"support_error_purchase" = "The payment could not be completed. Please try again.";
+"support_error_verify" = "Unable to verify the purchase.";

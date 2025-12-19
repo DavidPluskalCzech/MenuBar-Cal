@@ -29,9 +29,22 @@
 		C95A3BAE2EC6879E00B7F450 /* MenuBar Cal+UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MenuBar Cal+UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C9E384452EF6053100B49184 /* Exceptions for "MenuBar Cal+" folder in "MenuBar Cal+" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C95A3B942EC6879D00B7F450 /* MenuBar Cal+ */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C95A3B972EC6879D00B7F450 /* MenuBar Cal+ */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C9E384452EF6053100B49184 /* Exceptions for "MenuBar Cal+" folder in "MenuBar Cal+" target */,
+			);
 			path = "MenuBar Cal+";
 			sourceTree = "<group>";
 		};
@@ -407,11 +420,14 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.davidpluskal.MenuBar-Cal-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,11 +456,14 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.davidpluskal.MenuBar-Cal-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
