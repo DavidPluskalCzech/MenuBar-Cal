@@ -12,3 +12,6 @@ DerivedData/
 
 # Xcode shared data
 *.xcodeproj/xcshareddata/
+
+# App Store screenshots and marketing assets
+Other files/

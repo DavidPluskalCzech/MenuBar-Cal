@@ -34,8 +34,9 @@
 
 "support_loading" = "Loading support options…";
 "support_retry" = "Try Again";
-"support_empty_state" = "Support options are currently unavailable. Please check your internet connection or make sure the app is running from the App Store or with a StoreKit test configuration.";
 
 "support_error_load" = "Unable to load support options. Please try again later.";
 "support_error_purchase" = "The payment could not be completed. Please try again.";
 "support_error_verify" = "Unable to verify the purchase.";
+
+"support_unavailable" = "Support options are temporarily unavailable. Please try again later.";

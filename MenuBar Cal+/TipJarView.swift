@@ -16,13 +16,17 @@ final class TipJarViewModel: ObservableObject {
         "com.davethepcguy.calendarbar.tip.large"
     ]
 
-    func loadProducts() async {
+    func loadProducts(force: Bool = false) async {
         print("TipJarViewModel.loadProducts() called")
 
         // ať nevoláme StoreKit zbytečně víckrát
-        guard products.isEmpty else {
-            print("Skipping loadProducts: products already loaded (\(products.count))")
-            return
+        if !force {
+            guard products.isEmpty else {
+                print("Skipping loadProducts: products already loaded (\(products.count))")
+                return
+            }
+        } else {
+            products = []
         }
 
         isLoading = true
@@ -38,7 +42,7 @@ final class TipJarViewModel: ObservableObject {
 
         } catch {
             print("ERROR fetching products: \(error.localizedDescription)")
-            errorMessage = "support_error_load."
+            errorMessage = "support_error_load"
         }
 
         isLoading = false
@@ -72,7 +76,7 @@ final class TipJarViewModel: ObservableObject {
             throw NSError(
                 domain: "StoreKit",
                 code: 0,
-                userInfo: [NSLocalizedDescriptionKey: "support_error_verify"]
+                userInfo: [NSLocalizedDescriptionKey: NSLocalizedString("support_error_verify", comment: "")]
             )
         case .verified(let safe):
             return safe
@@ -106,20 +110,26 @@ struct TipJarView: View {
 
             } else if let error = viewModel.errorMessage {
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(error)
+                    Text(LocalizedStringKey(error))
                         .font(.subheadline)
 
                     Button("support_retry") {
-                        Task { await viewModel.loadProducts() }
+                        Task { await viewModel.loadProducts(force: true) }
                     }
                 }
                 .padding(.top, 8)
 
             } else if viewModel.products.isEmpty {
-                Text("support_empty_state")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .padding(.top, 8)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("support_unavailable")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+
+                    Button("support_retry") {
+                        Task { await viewModel.loadProducts(force: true) }
+                    }
+                }
+                .padding(.top, 8)
 
             } else {
                 ForEach(viewModel.products, id: \.id) { product in

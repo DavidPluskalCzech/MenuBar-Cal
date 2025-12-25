@@ -34,8 +34,9 @@
 
 "support_loading" = "Načítám možnosti podpory…";
 "support_retry" = "Zkusit znovu";
-"support_empty_state" = "Možnosti podpory zatím nejsou dostupné. Zkontroluj připojení k internetu nebo že aplikace běží z App Store / s testovací StoreKit konfigurací.";
 
 "support_error_load" = "Nepodařilo se načíst možnosti podpory. Zkuste to prosím později.";
 "support_error_purchase" = "Platbu se nepodařilo dokončit. Zkuste to prosím znovu.";
 "support_error_verify" = "Nelze ověřit nákup.";
+
+"support_unavailable" = "Možnosti podpory jsou dočasně nedostupné. Zkuste to prosím později.";
