@@ -99,6 +99,20 @@ struct IconButton: View {
 
         var result: [Int?] = Array(repeating: nil, count: leadingEmptyDays)
         result.append(contentsOf: range.map { Int?($0) })
+
+        // Doplnit na násobek 7
+        let remainder = result.count % 7
+        if remainder != 0 {
+            result.append(contentsOf: Array(repeating: nil, count: 7 - remainder))
+        }
+
+        // Vždy 6 řádků (42 buněk) -> stabilní výška popoveru
+        if result.count < 42 {
+            result.append(contentsOf: Array(repeating: nil, count: 42 - result.count))
+        } else if result.count > 42 {
+            result = Array(result.prefix(42))
+        }
+
         return result
     }
 
@@ -163,8 +177,8 @@ struct IconButton: View {
                                     calendar: calendar
                                 )
                             } else {
-                                Text(" ")
-                                    .frame(maxWidth: .infinity, minHeight: 20)
+                                Color.clear
+                                    .frame(maxWidth: .infinity, minHeight: 22)
                             }
                         }
                     }

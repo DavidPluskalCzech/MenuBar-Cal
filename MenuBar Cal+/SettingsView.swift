@@ -1,4 +1,5 @@
 import SwiftUI
+import ServiceManagement
 
 
 //Settings - general - checkboxes
@@ -8,7 +9,7 @@ struct SettingsView: View {
     @AppStorage("dateStyle") private var dateStyleRaw: Int = 0
     @AppStorage("showIcon") private var showIcon: Bool = true
     @AppStorage("showDate") private var showDate: Bool = true
-    @AppStorage("launchAtLogin") private var launchAtLogin: Bool = false
+    @AppStorage("launchAtLogin") private var launchAtLogin = false
     
     @State private var feedbackText: String = ""
     @State private var showThanksAlert: Bool = false
@@ -93,6 +94,13 @@ struct SettingsView: View {
                                     .labelsHidden()
                                     .toggleStyle(.switch)
                                     .controlSize(.small)
+                                    .onChange(of: launchAtLogin) { _, newValue in
+                                        LaunchAtLogin.setEnabled(newValue)
+                                    }
+                                    .onAppear {
+                                        // srovná toggle podle reálného stavu v systému (když to uživatel změnil v macOS nastavení)
+                                        launchAtLogin = LaunchAtLogin.isEnabled
+                                    }
                             }
                             .padding(.top, 16)   // větší mezera = vizuální oddělení
                             
@@ -257,5 +265,24 @@ struct SettingsView: View {
                 withAnimation(.easeIn(duration: 0.12)) { }
             }
         }
+    }
+}
+
+@MainActor
+enum LaunchAtLoginManager {
+    static func setEnabled(_ enabled: Bool) {
+        do {
+            if enabled {
+                try SMAppService.mainApp.register()
+            } else {
+                try SMAppService.mainApp.unregister()
+            }
+        } catch {
+            print("LaunchAtLogin error:", error.localizedDescription)
+        }
+    }
+
+    static var isEnabled: Bool {
+        SMAppService.mainApp.status == .enabled
     }
 }
